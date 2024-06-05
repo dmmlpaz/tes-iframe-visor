@@ -51,7 +51,7 @@
         }
         fetch("https://www.portalinvani.smarttmt.com/smarttmtsuite-web-invias/faces/site/SolicitudPredioVisorGeografico.xhtml", {
             method: "POST",
-            body: predioVisorGeograficoM
+            body: JSON.stringify(predioVisorGeograficoM)
         })
 
     })
