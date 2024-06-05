@@ -44,14 +44,16 @@
     document.addEventListener("submit", (e) => {
 
         event.preventDefault()
-        const predioVisorGeograficoM = {
-            municipio: e.target.elements["municipio"].value,
-            corregimiento: e.target.elements["corregimiento"].value,
-            direccionPredio: e.target.elements["direccion"].value
-        }
+
+        const predioVisorGeograficoM = JSON.stringify({
+            "municipio": e.target.elements["municipio"].value,
+            "corregimiento": e.target.elements["corregimiento"].value,
+            "direccionPredio": e.target.elements["direccion"].value
+        });
+
         fetch("https://www.portalinvani.smarttmt.com/smarttmtsuite-web-invias/faces/site/SolicitudPredioVisorGeografico.xhtml", {
             method: "POST",
-            body: JSON.stringify(predioVisorGeograficoM)
+            body: predioVisorGeograficoM
         })
 
     })
