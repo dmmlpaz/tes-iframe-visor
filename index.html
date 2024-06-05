@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        background-color: gray;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+</style>
+
+<body>
+    <form action="" class="form">
+        <label for="municipio">Municipio</label>
+        <input id="municipio" type="text">
+        <label for="corregimiento">Corregimiento</label>
+        <input id="corregimiento" type="text">
+        <label for="direccion">Dirección</label>
+        <input id="direccion" type="text">
+        <br>
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+
+<script>
+    document.addEventListener("submit", (e) => {
+
+        event.preventDefault()
+        const predioVisorGeograficoM = {
+            municipio: e.target.elements["municipio"].value,
+            corregimiento: e.target.elements["corregimiento"].value,
+            direccionPredio: e.target.elements["direccion"].value
+        }
+        fetch("https://www.portalinvani.smarttmt.com/smarttmtsuite-web-invias/faces/site/SolicitudPredioVisorGeografico.xhtml", {
+            method: "POST",
+            body: predioVisorGeograficoM
+        })
+
+    })
+
+    window.addEventListener('message', (event) => {
+        // Aquí puedes manejar los datos recibidos
+        console.log('desde el iframe otro origen', event?.data); // { message: 'Hola desde la ventana padre' }
+    });
+</script>
+
+</html>
