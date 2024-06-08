@@ -63,7 +63,7 @@
         console.log('desde el iframe otro origen', event?.data); // { message: 'Hola desde la ventana padre' }
     });
 
-    if (window.self !== window.top) {
+    if (window.self === window.top) {
         alert("estoy dentro de un iframe")
     }
 </script>
