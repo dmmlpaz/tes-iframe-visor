@@ -64,9 +64,12 @@
         console.log('desde el iframe otro origen', event?.data); // { message: 'Hola desde la ventana padre' }
     });
 
-    window.addEventListener('DOMContentLoaded', () => {
-        c.log('xxx win', { window })
+    window.addEventListener('DOMContentLoaded',()=> {
+        c.log()
     })
+
+
+    alert('window.top:'+window.top)
 
 </script>
 
