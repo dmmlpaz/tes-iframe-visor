@@ -41,6 +41,7 @@
 </body>
 
 <script>
+    const c = console
     document.addEventListener("submit", (e) => {
 
         event.preventDefault()
@@ -66,6 +67,9 @@
     if (window.self === window.top) {
         alert("estoy dentro de un iframe")
     }
+
+    c.log('window.self',window.self)
+    c.log('window.top',window.top)
 </script>
 
 </html>
