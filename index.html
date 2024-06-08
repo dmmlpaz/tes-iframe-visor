@@ -64,15 +64,10 @@
         console.log('desde el iframe otro origen', event?.data); // { message: 'Hola desde la ventana padre' }
     });
 
-    if (window.self === window.top) {
-        alert("estoy dentro de un iframe")
-    }
+    window.addEventListener('DOMContentLoaded', () => {
+        c.log('xxx win', { window })
+    })
 
-    alert('window.top:'+window.top)
-    alert('window.self:'+window.self)
-
-    c.log('window.self',window.top)
-    c.log('window.top',window.self)
 </script>
 
 </html>
